@@ -7,8 +7,6 @@ use CodeIgniter\Model;
 class UsuarioModel extends Model
 {
 
-
-
     protected $table = 'usuarios';
 
     protected $primaryKey = 'id';
@@ -17,9 +15,9 @@ class UsuarioModel extends Model
 
     protected $validationRules =  [
         'nome' => 'required|max_length[30]|alpha_numeric_space|min_length[3]',
-        'cpf' => 'required|max_length[14]|is_unique[users.cpf]|min_length[14]',
+        'cpf' => 'required|max_length[14]|is_unique[usuarios.cpf]|min_length[14]',
         'email' => [
-            'rules' => 'required|max_length[40]|valid_email|is_unique[users.email]',
+            'rules' => 'required|max_length[40]|valid_email|is_unique[usuarios.email]',
             'erros' => [
                 'required' => 'Preencha o seu email corretamente!'
             ]
@@ -41,5 +39,17 @@ class UsuarioModel extends Model
         return $query->getResultArray();
     }
 
-    public function setUsuario() {}
+
+
+    public function setUsuario($dataUsuario)
+    {
+
+
+        
+        if ($this->insert($dataUsuario)) {
+            return $this->insertID();
+        } else {
+            return false;
+        }
+    }
 }
