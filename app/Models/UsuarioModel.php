@@ -15,15 +15,15 @@ class UsuarioModel extends Model
 
     protected $validationRules =  [
         'nome' => 'required|max_length[30]|alpha_numeric_space|min_length[3]',
-        'cpf' => 'required|max_length[14]|is_unique[usuarios.cpf]|min_length[14]',
+        'cpf' => 'required|max_length[14]|is_unique[usuarios.cpf]',
         'email' => [
             'rules' => 'required|max_length[40]|valid_email|is_unique[usuarios.email]',
             'erros' => [
                 'required' => 'Preencha o seu email corretamente!'
             ]
         ],
-        'senha' =>  'required|max_length[12]|alpha_numeric_space|min_length[4]',
-        'telefone' => 'required|max_length[14]|min_length[14]'
+        'senha' =>  'required',
+        'telefone' => 'required|max_length[14]'
 
     ];
 
@@ -45,9 +45,9 @@ class UsuarioModel extends Model
     {
 
 
-        
+
         if ($this->insert($dataUsuario)) {
-            return $this->insertID();
+            return true;
         } else {
             return false;
         }

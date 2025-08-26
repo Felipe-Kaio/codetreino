@@ -19,7 +19,7 @@
     <div class="login-container">
         <div class="logo">
             <h1>
-                <a href="<?= base_url('main/index') ?>">Sustainfy</a>
+                Sustainfy
             </h1>
 
             <p>Conecte-se à sua conta e continue sua jornada ecológica</p>
@@ -45,6 +45,9 @@
             <div class="register-link">
                 Não tem uma conta? <a href="<?= base_url('main/cadastro') ?>">Cadastre-se</a>
             </div>
+            <div class="register-link">
+                <a href="<?= base_url('main/index') ?>">Retornar ao inicio</a>
+            </div>
         </form>
     </div>
 
@@ -56,3 +59,10 @@
 </body>
 
 </html>
+
+<script>
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function(toastEl) {
+        return new bootstrap.Toast(toastEl, option)
+    })
+</script>

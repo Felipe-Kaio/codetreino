@@ -18,9 +18,7 @@
 
     <div class="login-container">
         <div class="logo">
-            <a href="<?= base_url('main/index') ?>">
-                <h1 class="link-offset-2 link-underline link-underline-opacity-0">Sustainfy</h1>
-            </a>
+            <h1 class="link-offset-2 link-underline link-underline-opacity-0">Sustainfy</h1>
             <p>Crie sua conta e comece sua jornada ecológica</p>
         </div>
 
@@ -57,6 +55,9 @@
             <div class="register-link">
                 Já tem uma conta?
                 <a href="<?= base_url('main/login') ?>">Faça login</a>
+            </div>
+            <div class="register-link">
+                <a href="<?= base_url('main/index') ?>">Retornar ao inicio</a>
             </div>
         </form>
 
