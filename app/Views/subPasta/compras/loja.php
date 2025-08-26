@@ -80,7 +80,7 @@
             </div>
 
             <div class="category-card">
-                <img src="img/consciente.jpg        " alt="Moda Consciente" class="category-img">
+                <img src="img/consciente.jpg" alt="Moda Consciente" class="category-img">
                 <div class="category-overlay">
                     <h3 class="category-title">Moda Consciente</h3>
                     <a href="#" class="category-link">

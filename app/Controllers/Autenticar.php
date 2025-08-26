@@ -14,38 +14,39 @@ class Autenticar extends BaseController
         $usuarioModel = new UsuarioModel();
 
         $email = $this->request->getPost('email');
-
         $senha = $this->request->getPost('senha');
 
-        $usuarioDados = $usuarioModel->getUsuario($email);
+        $usuarioDados = $usuarioModel->where('email', $email)->findAll();
 
-
-        if (!isset($_POST['email'], $_POST['senha']) &&  (empty($email) && empty($senha))) {
-            $email = trim($_POST['email']);
-            $senha = $_POST['senha'];
-            echo 'Email ou senha inválida';
+       
+        if (empty($email) || empty($senha)) {
+            session()->setFlashdata('erro', 'Email e senha são obrigatórios.');
+            return redirect()->back()->withInput();
         }
 
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            die("Email inválido");
+            session()->setFlashdata('erro', 'Email inválido.');
+            return redirect()->back()->withInput();
         }
 
-        if ($usuarioDados && password_verify($senha, $usuarioDados['0']['senha'])) {
-            $_SESSION['nome'] = $usuarioDados[0]['nome'];
-            $_SESSION['email'] = $usuarioDados[0]['email'];
-            echo 'Login realizado com sucesso!';
-        }
+        $usuarioDados = $usuarioModel->getUsuario($email);
 
-        if ($usuarioDados) {
-            session()->set('usuarios', ['nome_usuario' => $usuarioDados['0']['nome'], 'email_usuario' => $usuarioDados['0']['email']]);
+        if ($usuarioDados && password_verify($senha, $usuarioDados[0]['senha'])) {
+            
+            session()->set('usuarios', [
+                'nome_usuario' => $usuarioDados[0]['nome'],
+                'email_usuario' => $usuarioDados[0]['email']
+            ]);
 
+            session()->setFlashdata('sucesso', 'Usuário logado com sucesso!');
             return redirect()->to(base_url('main/loja'));
         } else {
-            return redirect()->back()->with('erro', 'Email ou senha inválidos.');
+            session()->setFlashdata('erro', 'Email ou senha inválidos.');
+            return redirect()->back()->withInput();
         }
     }
+
 
     public function NovoCliente()
     {
@@ -70,9 +71,10 @@ class Autenticar extends BaseController
         ];
 
         if ($usuarioModel->save($dataUsuario)) {
+            session()->setFlashdata('Sucesso', 'Usuário cadastrado com sucesso!');
             return redirect()->to(base_url('main/login'));
         } else {
-            echo implode('<br>', $usuarioModel->errors());
+            session()->setFlashdata('Erro', 'Usuário não pode ser cadastrado!');
         }
     }
 
