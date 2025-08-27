@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= base_url('css/loja.css') ?>">
     <script async src="<?= base_url('js/loja.js') ?>"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>Sustainfy - Estilo de Vida Sustentável</title>
 
@@ -270,9 +272,8 @@
         </div>
     </footer>
 
-
+    <!-- Adicionar ao carrinho - Versão melhorada -->
     <script>
-        // Adicionar ao carrinho - Versão melhorada
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -301,7 +302,6 @@
             });
         });
     </script>
-
 </body>
 
 </html>

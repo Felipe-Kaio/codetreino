@@ -5,16 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= base_url('css/login.css') ?>">
-    <!-- Toastr CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 
-    <!-- Toastr JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <title>Sustainfy - Login</title>
 
 </head>
 
 <body>
+    <!-- Verifica se há uma mensagem de sucesso na sessão -->
+
     <div class="leaf-decoration leaf-1">
         <svg width="150" height="150" viewBox="0 0 24 24" fill="#2e8b57">
             <path d="M12 3c-3.9 0-7 3.1-7 7 0 2.4 1.2 4.6 3.1 5.8-0.3 1.3-0.7 2.6-1.1 3.8-0.3 0.9-0.1 1.8 0.5 2.5 0.6 0.7 1.5 1 2.5 1 3.3 0 6-2.7 6-6 0-0.6-0.1-1.2-0.2-1.8 1.8-1.3 3.2-3.3 3.2-5.7 0-3.9-3.1-7-7-7z" />
@@ -64,10 +62,3 @@
 </body>
 
 </html>
-
-<script>
-    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-    var toastList = toastElList.map(function(toastEl) {
-        return new bootstrap.Toast(toastEl, option)
-    })
-</script>
