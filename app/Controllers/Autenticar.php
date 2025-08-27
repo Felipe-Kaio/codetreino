@@ -20,14 +20,12 @@ class Autenticar extends BaseController
 
         // Verifica se os campos estão vazios.
         if (empty($email) || empty($senha)) {
-            session()->getFlashdata('Erro', 'Por favor, preencha todos os campos!');
             return redirect()->to(base_url('main/login'));
         }
 
         // Sanitiza e valida o email.
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            session()->getFlashdata('Erro', 'Email inválido!');
             return redirect()->to(base_url('main/login'));
         }
 
@@ -44,13 +42,15 @@ class Autenticar extends BaseController
             // Login deu certo!
 
             // Redirecionado para a loja.
-            session()->getFlashdata('Sucesso', 'Login realizado com sucesso!');
+            session()->setFlashdata('tipo', 'bg-success');
+            session()->setFlashdata('mensagem', 'Login realizado com sucesso!');
             return redirect()->to(base_url('main/loja'));
         } else {
             // Login deu errado!
 
             // Redirecionado novamente para o login.
-            session()->getFlashdata('Erro', 'Email ou senha inválidos!');
+            session()->setFlashdata('tipo', 'bg-danger');
+            session()->setFlashdata('mensagem', 'Falha ao realizar o login!');
             return redirect()->to(base_url('main/login'));
         }
     }
@@ -60,10 +60,9 @@ class Autenticar extends BaseController
     {
         // Instancia o modelo de usuário.
         $usuarioModel = new UsuarioModel();
-        
+
         // Valida os dados do formulário.
         if ($this->validarSenha('senha') == false) {
-        
         }
         // Obtém os dados do formulário.
         $nome = $this->request->getPost('nome');
@@ -86,13 +85,11 @@ class Autenticar extends BaseController
             // Login deu certo!
 
             // Redirecionado para o login.
-            session()->getFlashdata('Sucesso', 'Usuário cadastrado com sucesso!');
             return redirect()->to(base_url('main/login'));
         } else {
             // Login deu errado!
 
             // Redirecionado novamente para o cadastro.
-            session()->getFlashdata('Erro', 'Erro ao cadastrar usuário. Tente novamente.');
             return redirect()->to(base_url('main/cadastro'));
         }
     }

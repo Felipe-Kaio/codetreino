@@ -17,9 +17,9 @@ class UsuarioModel extends Model
     protected $validationRules =  [
         'nome' => 'required|alpha_space|min_length[3]|max_length[50]',
         'cpf' => [
-            'rules' => 'required|exact_length[14]|is_unique[usuarios.cpf]|validaCPF',
+            'rules' => 'required|max_length[14]|is_unique[usuarios.cpf]',
             'errors' => [
-                'validaCPF' => 'CPF inválido.',
+                'required' => 'CPF inválido.',
             ]
         ],
         'email' => [
@@ -30,8 +30,8 @@ class UsuarioModel extends Model
                 'is_unique' => 'Este e-mail já está em uso.',
             ]
         ],
-        'senha' => 'required|min_length[8]|max_length[64]|regex_match[/^(?=.*[A-Za-z])(?=.*\d).+$/]',
-        'telefone' => 'required|regex_match[/^\(\d{2}\)\s?\d{4,5}-\d{4}$/]|max_length[15]',
+        'senha' => 'required|min_length[8]|max_length[64]',
+        'telefone' => 'required|max_length[15]',
 
     ];
 
