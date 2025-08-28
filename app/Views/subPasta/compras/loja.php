@@ -128,7 +128,7 @@
                         <span class="product-price">R$ 89,90</span>
                         <button class="add-to-cart">
                             <i class="fas fa-shopping-cart"></i>
-                            Comprar
+                            Adicionar
                         </button>
                     </div>
                 </div>
@@ -145,7 +145,7 @@
                         <span class="product-price">R$ 42,90</span>
                         <button class="add-to-cart">
                             <i class="fas fa-shopping-cart"></i>
-                            Comprar
+                            Adicionar
                         </button>
                     </div>
                 </div>
@@ -163,7 +163,7 @@
                         <span class="product-price">R$ 79,90</span>
                         <button class="add-to-cart">
                             <i class="fas fa-shopping-cart"></i>
-                            Comprar
+                            Adicionar
                         </button>
                     </div>
                 </div>
@@ -180,7 +180,7 @@
                         <span class="product-price">R$ 149,90</span>
                         <button class="add-to-cart">
                             <i class="fas fa-shopping-cart"></i>
-                            Comprar
+                            Adicionar
                         </button>
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                         <span class="product-price">R$ 34,90</span>
                         <button class="add-to-cart">
                             <i class="fas fa-shopping-cart"></i>
-                            Comprar
+                            Adicionar
                         </button>
                     </div>
                 </div>
@@ -215,7 +215,7 @@
                         <span class="product-price">R$ 49,90</span>
                         <button class="add-to-cart">
                             <i class="fas fa-shopping-cart"></i>
-                            Comprar
+                            Adicionar
                         </button>
                     </div>
                 </div>
@@ -275,7 +275,7 @@
         </div>
     </footer>
 
-    
+
 
     <!-- Adicionar ao carrinho - Versão melhorada -->
     <script>
@@ -285,7 +285,7 @@
                 const productCard = this.closest('.product-card');
                 const productId = productCard.dataset.id;
 
-                fetch('adicionar_carrinho.php', {
+                fetch('<?= base_url("compras/Carrinho/adicionarAoCarrinho") ?>', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -299,13 +299,15 @@
                                 cartIcon.classList.add('animate-bounce');
                                 setTimeout(() => cartIcon.classList.remove('animate-bounce'), 1000);
                             }
-                            alert('Produto adicionado ao carrinho!');
+                            <?= session()->setFlashdata('tipo', 'bg-success'); ?>
+                            <?= session()->setFlashdata('mensagem', 'Produto adicionado ao carrinho!'); ?>
                         } else {
-                            alert('Erro ao adicionar produto');
+                            <?= session()->setFlashdata('tipo', 'bg-danger'); ?>
+                            <?= session()->setFlashdata('mensagem', 'Erro ao adicionar o produto.'); ?>
                         }
                     });
             });
-        });
+        }); 
     </script>
 
     <!-- Toast container no canto superior esquerdo -->
