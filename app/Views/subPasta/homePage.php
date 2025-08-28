@@ -23,7 +23,7 @@
 
         <div class="gallery">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Floresta tropical">
+                <img src="https://123ecos.com.br/wp-content/uploads/2024/09/floresta-tropical.jpg" alt="Florestas tropical">
                 <div class="caption">
                     <h3>Florestas Tropicais</h3>
                     <p>Descubra os ecossistemas mais diversos do planeta, lar de inúmeras espécies de plantas e animais.</p>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1550358864-518f202c02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Animais selvagens">
+                <img src="https://wallpapers.com/images/hd/wild-animals-background-ls56lyecnkxqqyzz.jpg" alt="Animais selvagens">
                 <div class="caption">
                     <h3>Vida Animal</h3>
                     <p>Conheça as incríveis criaturas que compartilham nosso mundo, desde os menores insetos até os maiores mamíferos.</p>
@@ -49,7 +49,7 @@
 
         <div class="gallery">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Oceanos">
+                <img src="https://www.infoescola.com/wp-content/uploads/2016/09/ecossistema-marinho-211006552.jpg" alt="Oceanos">
                 <div class="caption">
                     <h3>Ecossistemas Aquáticos</h3>
                     <p>Mergulhe na beleza dos oceanos, rios e lagos que cobrem a maior parte do nosso planeta.</p>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1542600176-4fc72c252bd0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pássaros">
+                <img src="https://blog.cobasi.com.br/wp-content/uploads/2023/10/tipos-de-aves-capa.webp" alt="Áves coloridas">
                 <div class="caption">
                     <h3>Aves Coloridas</h3>
                     <p>Admire a diversidade e beleza das aves que enchem nossos céus de cores e sons.</p>
@@ -65,7 +65,7 @@
             </div>
 
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1458966480358-ff6d496a1b03?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Conservação">
+                <img src="https://biodieselbrasil.com.br/wp-content/uploads/2022/07/protecao-as-florestas.jpg" alt="Conservação">
                 <div class="caption">
                     <h3>Conservação</h3>
                     <p>Aprenda como você pode ajudar a proteger esses tesouros naturais para as gerações futuras.</p>

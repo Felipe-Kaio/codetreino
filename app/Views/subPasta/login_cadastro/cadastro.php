@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= base_url('css/cadastro.css') ?>">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>Sustainfy - Cadastro</title>
 
@@ -102,6 +104,33 @@
                 value = value.replace(/(\d{4})(\d)/, '$1-$2');
             }
             e.target.value = value;
+        });
+    </script>
+
+    <!-- Toast container no canto inferior direito -->
+    <div class="position-fixed top-0 start-0 p-3" style="z-index: 11" data-bs-delay="10000">
+        <div id="liveToast" class="toast align-items-center text-white border-0  <?= session()->getFlashdata('tipo') ?>" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <?= session()->getFlashdata('mensagem') ?>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS (com Popper incluído) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var toastEl = document.getElementById('liveToast');
+            var toast = new bootstrap.Toast(toastEl);
+
+            <?php if (session()->getFlashdata('mensagem')) : ?>
+                toast.show();
+            <?php endif ?>
         });
     </script>
 </body>

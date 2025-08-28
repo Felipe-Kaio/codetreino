@@ -85,11 +85,15 @@ class Autenticar extends BaseController
             // Login deu certo!
 
             // Redirecionado para o login.
+            session()->setFlashdata('tipo', 'bg-success');
+            session()->setFlashdata('mensagem', 'Cadastro realizado com sucesso!');
             return redirect()->to(base_url('main/login'));
         } else {
             // Login deu errado!
 
             // Redirecionado novamente para o cadastro.
+            session()->setFlashdata('tipo', 'bg-danger');
+            session()->setFlashdata('mensagem', 'Falha ao realizar o Cadastro!');
             return redirect()->to(base_url('main/cadastro'));
         }
     }
