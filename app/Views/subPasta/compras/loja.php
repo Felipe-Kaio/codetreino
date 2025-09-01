@@ -18,12 +18,12 @@
 </head>
 
 <body>
-    <!-- Banner Promocional -->
+    <!--------------------------------------- Banner Promorcional ------------------------------------>
     <div class="promo-banner">
         <p>🌱 Frete grátis em compras acima de R$ 150 | Use o cupom ECO10 para 10% de desconto</p>
     </div>
 
-    <!-- Navbar Premium -->
+    <!--------------------------------------- NavBar  ------------------------------------>
     <nav class="navbar">
         <a class="logo">
 
@@ -42,7 +42,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!--------------------------------------- Seção do topo ------------------------------------>
     <section class="hero">
         <div class="hero-content">
             <h1>Viva em Harmonia com a Natureza</h1>
@@ -54,7 +54,7 @@
         </div>
     </section>
 
-    <!-- Seção de Categorias -->
+    <!--------------------------------------- Seção de categorias ------------------------------------>
     <section id="categories" class="categories">
         <div class="section-header">
             <h2 class="section-title">Nossas Categorias</h2>
@@ -108,7 +108,7 @@
         </div>
     </section>
 
-    <!-- Seção de Produtos -->
+    <!--------------------------------------- Seção de produtos ------------------------------------>
     <section id="products" class="products">
         <div class="section-header">
             <h2 class="section-title">Nossos Produtos</h2>
@@ -116,114 +116,34 @@
         </div>
 
         <div class="products-grid">
-            <!-- Produto 1 -->
-            <div class="product-card" data-id="1">
-                <span class="product-badge">Novidade</span>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfTmkL70tqbmvIoBst7kcpgkLhYrPF6rSYfg&s" alt="Conjunto Bambu" class="product-img">
-                <div class="product-info">
-                    <span class="product-category">Casa Sustentável</span>
-                    <h3 class="product-title">Conjunto Utensílios Bambu</h3>
-                    <p class="product-description">Kit completo com 6 utensílios de cozinha em bambu 100% biodegradável e resistente.</p>
-                    <div class="product-footer">
-                        <span class="product-price">R$ 89,90</span>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Adicionar
-                        </button>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Produto 2 -->
-            <div class="product-card" data-id="2">
-                <img src="https://cdn.dooca.store/1857/products/limpprof1-1_640x640.jpeg?v=1695061450&webp=0" alt="Shampoo Sólido" class="product-img">
-                <div class="product-info">
-                    <span class="product-category">Beleza Natural</span>
-                    <h3 class="product-title">Shampoo Sólido Vegano</h3>
-                    <p class="product-description">Para cabelos normais a secos. Livre de plástico e ingredientes nocivos. Dura até 80 lavagens.</p>
-                    <div class="product-footer">
-                        <span class="product-price">R$ 42,90</span>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Adicionar
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <!--------------------------------------- Produtos ------------------------------------>
+            <?php foreach ($produtos as $produto) : ?>
+                <form action="<?= base_url('main/Adicionar_Carrinho') ?>" method="POST">
 
-            <!-- Produto 3 -->
-            <div class="product-card" data-id="3">
-                <span class="product-badge">Mais Vendido</span>
-                <img src="https://feital.com.br/wp-content/uploads/2023/09/garrafa-termica-aco-1.jpg" alt="Garrafa Térmica" class="product-img">
-                <div class="product-info">
-                    <span class="product-category">Acessórios</span>
-                    <h3 class="product-title">Garrafa Térmica Aço Inox</h3>
-                    <p class="product-description">Mantém líquidos quentes por 12h e frios por 24h. Livre de BPA e outros químicos.</p>
-                    <div class="product-footer">
-                        <span class="product-price">R$ 79,90</span>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Adicionar
-                        </button>
+                    <div class="product-card" data-id="<?= $produto['id'] ?>">
+                        <span class="product-badge">Novidade</span>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfTmkL70tqbmvIoBst7kcpgkLhYrPF6rSYfg&s" alt="Conjunto Bambu" class="product-img">
+                        <div class="product-info">
+                            <span class="product-category"><?= esc($produto['categoria']) ?></span>
+                            <h3 class="product-title"><?= esc($produto['nome']) ?></h3>
+                            <p class="product-description"><?= esc($produto['descricao']) ?></p>
+                            <div class="product-footer">
+                                <span class="product-price"><strong>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></strong></span>
+                                <button class="add-to-cart">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Adicionar
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Produto 4 -->
-            <div class="product-card" data-id="4">
-                <img src="https://cdn.shopify.com/s/files/1/0356/0233/3836/files/moda-rustico-bolsas-rattan-balinese-bali-artesintonia-e1533317869639_grande.jpg" alt="Mochila Ecológica" class="product-img">
-                <div class="product-info">
-                    <span class="product-category">Moda Consciente</span>
-                    <h3 class="product-title">Mochila de Fibra Natural</h3>
-                    <p class="product-description">Feita à mão com fibras de bananeira, resistente à água e com design ergonômico.</p>
-                    <div class="product-footer">
-                        <span class="product-price">R$ 149,90</span>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Adicionar
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produto 5 -->
-            <div class="product-card" data-id="5">
-                <img src="https://cdn.awsli.com.br/600x700/2081/2081619/produto/151015045/08e6c92508.jpg" alt="Escova Bambu" class="product-img">
-                <div class="product-info">
-                    <span class="product-category">Cuidados Pessoais</span>
-                    <h3 class="product-title">Kit Escovas de Bambu</h3>
-                    <p class="product-description">Conjunto com 3 escovas de dentes de bambu com cerdas biodegradáveis.</p>
-                    <div class="product-footer">
-                        <span class="product-price">R$ 34,90</span>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Adicionar
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produto 6 -->
-            <div class="product-card" data-id="6">
-                <span class="product-badge">Eco-Friendly</span>
-                <img src="https://acdn-us.mitiendanube.com/stores/001/248/765/products/canudo-inox-3-pcs1-8101d86d829a3bd7fd16810107191598-640-0.jpg" alt="Canudos de Metal" class="product-img">
-                <div class="product-info">
-                    <span class="product-category">Acessórios</span>
-                    <h3 class="product-title">Kit Canudos Reutilizáveis</h3>
-                    <p class="product-description">4 canudos de aço inoxidável em diferentes tamanhos + limpador. Case inclusa.</p>
-                    <div class="product-footer">
-                        <span class="product-price">R$ 49,90</span>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Adicionar
-                        </button>
-                    </div>
-                </div>
-            </div>
+                </form>
+            <?php endforeach; ?>
         </div>
     </section>
 
-    <!-- Rodapé Premium -->
+
+    <!--------------------------------------- Rodapé ------------------------------------>
     <footer>
         <div class="footer-grid">
             <div class="footer-column footer-about">
@@ -276,8 +196,7 @@
     </footer>
 
 
-
-    <!-- Adicionar ao carrinho - Versão melhorada -->
+    <!--------------------------------------- Adicionar ao carrinho ------------------------------------>
     <script>
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', function(e) {
@@ -285,7 +204,7 @@
                 const productCard = this.closest('.product-card');
                 const productId = productCard.dataset.id;
 
-                fetch('<?= base_url("compras/Carrinho/adicionarAoCarrinho") ?>', {
+                fetch('adicionar_carrinho.php', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -299,18 +218,16 @@
                                 cartIcon.classList.add('animate-bounce');
                                 setTimeout(() => cartIcon.classList.remove('animate-bounce'), 1000);
                             }
-                            <?= session()->setFlashdata('tipo', 'bg-success'); ?>
-                            <?= session()->setFlashdata('mensagem', 'Produto adicionado ao carrinho!'); ?>
+                            alert('Produto adicionado ao carrinho!');
                         } else {
-                            <?= session()->setFlashdata('tipo', 'bg-danger'); ?>
-                            <?= session()->setFlashdata('mensagem', 'Erro ao adicionar o produto.'); ?>
+                            alert('Erro ao adicionar produto');
                         }
                     });
             });
-        }); 
+        });
     </script>
 
-    <!-- Toast container no canto superior esquerdo -->
+    <!--------------------------------------- Toast no canto superior esquerdo ------------------------------------>
     <div class="position-fixed top-0 start-0 p-3" style="z-index: 11" data-bs-delay="10000">
         <div id="liveToast" class="toast align-items-center text-white border-0  <?= session()->getFlashdata('tipo') ?>" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
@@ -322,8 +239,7 @@
         </div>
     </div>
 
-
-    <!-- Bootstrap JS (com Popper incluído) -->
+    <!--------------------------------------- Bootstrap com js ------------------------------------>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>

@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\ProdutoModel;
+
 class main extends BaseController
 {
 	// ======================================================
@@ -21,7 +23,10 @@ class main extends BaseController
 
 	public function loja()
 	{
-		return view('subpasta/compras/loja');
+		$produtoModel = new ProdutoModel();
+        $produtos = $produtoModel->findAll(); // Busca todos os produtos
+
+		return view('subpasta/compras/loja', ['produtos' => $produtos]);
 	}
 
 	public function carrinho()
