@@ -123,7 +123,7 @@
 
                     <div class="product-card" data-id="<?= $produto['id'] ?>">
                         <span class="product-badge">Novidade</span>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfTmkL70tqbmvIoBst7kcpgkLhYrPF6rSYfg&s" alt="Conjunto Bambu" class="product-img">
+                        <img src="><?= esc($produto['imagem']) ?>" alt="><?= esc($produto['nome']) ?>" class="product-img">
                         <div class="product-info">
                             <span class="product-category"><?= esc($produto['categoria']) ?></span>
                             <h3 class="product-title"><?= esc($produto['nome']) ?></h3>
@@ -197,14 +197,14 @@
 
 
     <!--------------------------------------- Adicionar ao carrinho ------------------------------------>
-    <script>
+     <script>
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 const productCard = this.closest('.product-card');
                 const productId = productCard.dataset.id;
 
-                fetch('adicionar_carrinho.php', {
+                fetch('<?= base_url('carrinhoController/Adicionar_Carrinho') ?>', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -212,16 +212,16 @@
                         body: `produto_id=${productId}&quantidade=1`
                     })
                     .then(response => {
-                        if (response.ok) {
-                            const cartIcon = document.querySelector('.fa-shopping-bag');
-                            if (cartIcon) {
-                                cartIcon.classList.add('animate-bounce');
-                                setTimeout(() => cartIcon.classList.remove('animate-bounce'), 1000);
-                            }
-                            alert('Produto adicionado ao carrinho!');
-                        } else {
-                            alert('Erro ao adicionar produto');
+                        // Feedback visual
+                        const cartIcon = document.querySelector('.fa-shopping-bag');
+                        if (cartIcon) {
+                            cartIcon.classList.add('animate-bounce');
+                            setTimeout(() => cartIcon.classList.remove('animate-bounce'), 1000);
                         }
+                        alert(data.mensagem || 'Produto adicionado ao carrinho!');
+                    })
+                    .catch(error => {
+                        alert(error.message);
                     });
             });
         });

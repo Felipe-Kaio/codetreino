@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ProdutoModel;
 
-class Autenticar extends BaseController
+class carrinhoController extends BaseController
 {
     public function Adicionar_Carrinho()
     {
